@@ -1,0 +1,580 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>Documentation - console.text()</title>
+    <meta name="description" content="Complete documentation for console.text() - Send SMS alerts from your code in one line." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="font-sans antialiased bg-white text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-slate-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold text-slate-900">
+                        <span class="font-mono">console.text()</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/docs" class="text-indigo-600 font-semibold">Docs</a>
+                    <a href="/#pricing" class="text-slate-600 hover:text-slate-900 transition-colors">Pricing</a>
+                    <a href="/#use-cases" class="text-slate-600 hover:text-slate-900 transition-colors">Use Cases</a>
+                    <a href="/#try-now" class="px-6 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Documentation Content -->
+    <main class="pt-24 pb-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Page Header -->
+            <div class="mb-12">
+                <h1 class="text-5xl font-bold text-slate-900 mb-4">Documentation</h1>
+                <p class="text-xl text-slate-600">Everything you need to integrate console.text() in 30 seconds.</p>
+            </div>
+
+            <!-- Quick Navigation -->
+            <div class="bg-slate-50 rounded-xl p-6 mb-12">
+                <h3 class="font-semibold text-slate-900 mb-3">On this page</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#quick-start" class="text-indigo-600 hover:text-indigo-700">Quick Start</a></li>
+                    <li><a href="#api-reference" class="text-indigo-600 hover:text-indigo-700">API Reference</a></li>
+                    <li><a href="#examples" class="text-indigo-600 hover:text-indigo-700">Usage Examples</a></li>
+                    <li><a href="#troubleshooting" class="text-indigo-600 hover:text-indigo-700">Troubleshooting</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Start -->
+            <section id="quick-start" class="mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Quick Start</h2>
+
+                <div class="prose prose-slate max-w-none">
+                    <p class="text-lg text-slate-700 mb-6">Get your first SMS alert working in 30 seconds.</p>
+
+                    <h3 class="text-xl font-semibold text-slate-900 mb-4">1. Get your API key</h3>
+                    <p class="text-slate-700 mb-4">Visit the <a href="/#try-now" class="text-indigo-600 hover:text-indigo-700">homepage</a> and enter your email and phone number to generate your API keys instantly.</p>
+
+                    <h3 class="text-xl font-semibold text-slate-900 mb-4 mt-8">2. Install the package</h3>
+                    <div class="bg-slate-900 rounded-lg p-4 mb-6">
+                        <code class="text-emerald-400 font-mono text-sm">npm install @holler2660/console-text</code>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-slate-900 mb-4">3. Initialize and use</h3>
+
+                    <!-- CommonJS Example -->
+                    <div class="mb-4">
+                        <div class="text-sm font-semibold text-slate-600 mb-2">CommonJS (Node.js)</div>
+                        <div class="bg-slate-900 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+                            <div><span class="text-purple-400">const</span> <span class="text-slate-200">{`{ init }`} = </span><span class="text-purple-400">require</span><span class="text-slate-200">(</span><span class="text-amber-300">"@holler2660/console-text"</span><span class="text-slate-200">);</span></div>
+                            <div class="mt-4"><span class="text-slate-200">init({`{ apiKey: `}</span><span class="text-amber-300">"ct_live_your_key_here"</span><span class="text-slate-200"> {`}`});</span></div>
+                            <div class="mt-4"><span class="text-slate-500">// Now anywhere in your code:</span></div>
+                            <div><span class="text-slate-200">console.text(</span><span class="text-amber-300">"Payment processed!"</span><span class="text-slate-200">);</span></div>
+                        </div>
+                    </div>
+
+                    <!-- ESM Example -->
+                    <div class="mb-6">
+                        <div class="text-sm font-semibold text-slate-600 mb-2">ES Modules (TypeScript / Modern JS)</div>
+                        <div class="bg-slate-900 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+                            <div><span class="text-purple-400">import</span> <span class="text-slate-200">{`{ init }`}</span> <span class="text-purple-400">from</span> <span class="text-amber-300">'@holler2660/console-text'</span><span class="text-slate-200">;</span></div>
+                            <div class="mt-4"><span class="text-slate-200">init({`{ apiKey: `}</span><span class="text-amber-300">'ct_live_your_key_here'</span><span class="text-slate-200"> {`}`});</span></div>
+                            <div class="mt-4"><span class="text-slate-500">// Now anywhere in your code:</span></div>
+                            <div><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Deployment successful!'</span><span class="text-slate-200">);</span></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mb-6">
+                        <p class="text-sm text-emerald-800"><strong>✅ That's it!</strong> You'll receive an SMS within 5-10 seconds.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- API Reference -->
+            <section id="api-reference" class="mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">API Reference</h2>
+
+                <!-- init() -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold text-slate-900 mb-4 font-mono">init(config)</h3>
+                    <p class="text-slate-700 mb-6">Initialize the console.text() SDK. Call this once at the start of your application.</p>
+
+                    <h4 class="text-lg font-semibold text-slate-900 mb-3">Parameters</h4>
+                    <div class="border border-slate-200 rounded-lg overflow-hidden mb-6">
+                        <table class="w-full">
+                            <thead class="bg-slate-50">
+                                <tr>
+                                    <th class="px-4 py-3 text-left text-sm font-semibold text-slate-900">Parameter</th>
+                                    <th class="px-4 py-3 text-left text-sm font-semibold text-slate-900">Type</th>
+                                    <th class="px-4 py-3 text-left text-sm font-semibold text-slate-900">Required</th>
+                                    <th class="px-4 py-3 text-left text-sm font-semibold text-slate-900">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr>
+                                    <td class="px-4 py-3 font-mono text-sm text-slate-900">apiKey</td>
+                                    <td class="px-4 py-3 text-sm text-slate-600">string</td>
+                                    <td class="px-4 py-3 text-sm"><span class="px-2 py-1 bg-red-100 text-red-700 rounded text-xs font-semibold">Yes</span></td>
+                                    <td class="px-4 py-3 text-sm text-slate-700">Your API key (<code class="text-xs bg-slate-100 px-1 rounded">ct_live_*</code> or <code class="text-xs bg-slate-100 px-1 rounded">ct_test_*</code>)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-mono text-sm text-slate-900">timeout</td>
+                                    <td class="px-4 py-3 text-sm text-slate-600">number</td>
+                                    <td class="px-4 py-3 text-sm"><span class="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-semibold">No</span></td>
+                                    <td class="px-4 py-3 text-sm text-slate-700">Request timeout in milliseconds (default: 5000)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-mono text-sm text-slate-900">retries</td>
+                                    <td class="px-4 py-3 text-sm text-slate-600">number</td>
+                                    <td class="px-4 py-3 text-sm"><span class="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-semibold">No</span></td>
+                                    <td class="px-4 py-3 text-sm text-slate-700">Number of retry attempts (default: 2)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-mono text-sm text-slate-900">debug</td>
+                                    <td class="px-4 py-3 text-sm text-slate-600">boolean</td>
+                                    <td class="px-4 py-3 text-sm"><span class="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-semibold">No</span></td>
+                                    <td class="px-4 py-3 text-sm text-slate-700">Enable debug logging (default: false)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="text-lg font-semibold text-slate-900 mb-3">Example</h4>
+                    <div class="bg-slate-900 rounded-lg p-6 font-mono text-sm overflow-x-auto mb-6">
+                        <div><span class="text-slate-200">init({`{`}</span></div>
+                        <div class="ml-4"><span class="text-slate-200">apiKey: </span><span class="text-amber-300">'ct_live_your_key_here'</span><span class="text-slate-200">,</span></div>
+                        <div class="ml-4"><span class="text-slate-200">timeout: </span><span class="text-emerald-400">10000</span><span class="text-slate-200">,</span></div>
+                        <div class="ml-4"><span class="text-slate-200">retries: </span><span class="text-emerald-400">3</span><span class="text-slate-200">,</span></div>
+                        <div class="ml-4"><span class="text-slate-200">debug: </span><span class="text-purple-400">true</span></div>
+                        <div><span class="text-slate-200">{`}`});</span></div>
+                    </div>
+                </div>
+
+                <!-- console.text() -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold text-slate-900 mb-4 font-mono">console.text(message, options?)</h3>
+                    <p class="text-slate-700 mb-6">Send an SMS alert. Available after calling <code class="text-sm bg-slate-100 px-2 py-1 rounded">init()</code>.</p>
+
+                    <h4 class="text-lg font-semibold text-slate-900 mb-3">Parameters</h4>
+                    <div class="border border-slate-200 rounded-lg overflow-hidden mb-6">
+                        <table class="w-full">
+                            <thead class="bg-slate-50">
+                                <tr>
+                                    <th class="px-4 py-3 text-left text-sm font-semibold text-slate-900">Parameter</th>
+                                    <th class="px-4 py-3 text-left text-sm font-semibold text-slate-900">Type</th>
+                                    <th class="px-4 py-3 text-left text-sm font-semibold text-slate-900">Required</th>
+                                    <th class="px-4 py-3 text-left text-sm font-semibold text-slate-900">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr>
+                                    <td class="px-4 py-3 font-mono text-sm text-slate-900">message</td>
+                                    <td class="px-4 py-3 text-sm text-slate-600">string</td>
+                                    <td class="px-4 py-3 text-sm"><span class="px-2 py-1 bg-red-100 text-red-700 rounded text-xs font-semibold">Yes</span></td>
+                                    <td class="px-4 py-3 text-sm text-slate-700">Alert message (max 500 characters, auto-truncated)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-mono text-sm text-slate-900">options</td>
+                                    <td class="px-4 py-3 text-sm text-slate-600">object</td>
+                                    <td class="px-4 py-3 text-sm"><span class="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-semibold">No</span></td>
+                                    <td class="px-4 py-3 text-sm text-slate-700">Additional metadata and severity</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-mono text-sm text-slate-900 pl-8">└ metadata</td>
+                                    <td class="px-4 py-3 text-sm text-slate-600">object</td>
+                                    <td class="px-4 py-3 text-sm"><span class="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-semibold">No</span></td>
+                                    <td class="px-4 py-3 text-sm text-slate-700">Custom data to attach to alert</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-mono text-sm text-slate-900 pl-8">└ severity</td>
+                                    <td class="px-4 py-3 text-sm text-slate-600">'info' | 'warning' | 'critical'</td>
+                                    <td class="px-4 py-3 text-sm"><span class="px-2 py-1 bg-slate-100 text-slate-700 rounded text-xs font-semibold">No</span></td>
+                                    <td class="px-4 py-3 text-sm text-slate-700">Alert severity level</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="text-lg font-semibold text-slate-900 mb-3">Examples</h4>
+
+                    <!-- Simple message -->
+                    <div class="mb-4">
+                        <div class="text-sm font-semibold text-slate-600 mb-2">Simple message</div>
+                        <div class="bg-slate-900 rounded-lg p-4 font-mono text-sm">
+                            <span class="text-slate-200">console.text(</span><span class="text-amber-300">'Deploy succeeded!'</span><span class="text-slate-200">);</span>
+                        </div>
+                    </div>
+
+                    <!-- With metadata -->
+                    <div class="mb-4">
+                        <div class="text-sm font-semibold text-slate-600 mb-2">With metadata</div>
+                        <div class="bg-slate-900 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+                            <div><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Payment failed'</span><span class="text-slate-200">, {`{`}</span></div>
+                            <div class="ml-4"><span class="text-slate-200">userId: </span><span class="text-amber-300">'123'</span><span class="text-slate-200">,</span></div>
+                            <div class="ml-4"><span class="text-slate-200">amount: </span><span class="text-emerald-400">99.99</span><span class="text-slate-200">,</span></div>
+                            <div class="ml-4"><span class="text-slate-200">error: </span><span class="text-amber-300">'Card declined'</span></div>
+                            <div><span class="text-slate-200">{`}`});</span></div>
+                        </div>
+                    </div>
+
+                    <!-- With severity -->
+                    <div class="mb-6">
+                        <div class="text-sm font-semibold text-slate-600 mb-2">With severity</div>
+                        <div class="bg-slate-900 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+                            <div><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Database down!'</span><span class="text-slate-200">, {`{`}</span></div>
+                            <div class="ml-4"><span class="text-slate-200">severity: </span><span class="text-amber-300">'critical'</span><span class="text-slate-200">,</span></div>
+                            <div class="ml-4"><span class="text-slate-200">metadata: {`{ server: `}</span><span class="text-amber-300">'prod-1'</span><span class="text-slate-200"> {`}`}</span></div>
+                            <div><span class="text-slate-200">{`}`});</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Test vs Live Keys -->
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border border-indigo-200">
+                    <h4 class="text-lg font-semibold text-slate-900 mb-3">🔑 Test vs Live Keys</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-start gap-3">
+                            <span class="text-emerald-500 font-bold mt-0.5">✓</span>
+                            <div>
+                                <code class="bg-white px-2 py-1 rounded text-xs font-mono">ct_test_*</code>
+                                <span class="text-slate-700 ml-2">Logs to console only, <strong>no SMS sent</strong></span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-emerald-500 font-bold mt-0.5">✓</span>
+                            <div>
+                                <code class="bg-white px-2 py-1 rounded text-xs font-mono">ct_live_*</code>
+                                <span class="text-slate-700 ml-2">Sends <strong>real SMS</strong> to your phone</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage Examples -->
+            <section id="examples" class="mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Usage Examples</h2>
+
+                <!-- Express.js -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Express.js API</h3>
+                    <div class="bg-slate-900 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+                        <div><span class="text-purple-400">const</span> <span class="text-slate-200">express = </span><span class="text-purple-400">require</span><span class="text-slate-200">(</span><span class="text-amber-300">'express'</span><span class="text-slate-200">);</span></div>
+                        <div><span class="text-purple-400">const</span> <span class="text-slate-200">{`{ init }`} = </span><span class="text-purple-400">require</span><span class="text-slate-200">(</span><span class="text-amber-300">'@holler2660/console-text'</span><span class="text-slate-200">);</span></div>
+                        <div class="mt-4"><span class="text-slate-200">init({`{ apiKey: process.env.CONSOLE_TEXT_API_KEY }`});</span></div>
+                        <div class="mt-4"><span class="text-purple-400">const</span> <span class="text-slate-200">app = express();</span></div>
+                        <div class="mt-4"><span class="text-slate-200">app.post(</span><span class="text-amber-300">'/api/payment'</span><span class="text-slate-200">, </span><span class="text-purple-400">async</span><span class="text-slate-200"> (req, res) => {`{`}</span></div>
+                        <div class="ml-4"><span class="text-purple-400">try</span> <span class="text-slate-200">{`{`}</span></div>
+                        <div class="ml-8"><span class="text-slate-500">// Process payment...</span></div>
+                        <div class="ml-8"><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Payment succeeded!'</span><span class="text-slate-200">);</span></div>
+                        <div class="ml-4"><span class="text-slate-200">{`}`} </span><span class="text-purple-400">catch</span><span class="text-slate-200"> (error) {`{`}</span></div>
+                        <div class="ml-8"><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Payment failed'</span><span class="text-slate-200">, {`{ error: error.message }`});</span></div>
+                        <div class="ml-4"><span class="text-slate-200">{`}`}</span></div>
+                        <div><span class="text-slate-200">{`}`});</span></div>
+                    </div>
+                </div>
+
+                <!-- Next.js API Route -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Next.js API Route</h3>
+                    <div class="bg-slate-900 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+                        <div><span class="text-purple-400">import</span> <span class="text-slate-200">{`{ init }`}</span> <span class="text-purple-400">from</span> <span class="text-amber-300">'@holler2660/console-text'</span><span class="text-slate-200">;</span></div>
+                        <div class="mt-4"><span class="text-slate-200">init({`{ apiKey: process.env.CONSOLE_TEXT_API_KEY }`});</span></div>
+                        <div class="mt-4"><span class="text-purple-400">export default async function</span> <span class="text-slate-200">handler(req, res) {`{`}</span></div>
+                        <div class="ml-4"><span class="text-purple-400">if</span> <span class="text-slate-200">(req.method === </span><span class="text-amber-300">'POST'</span><span class="text-slate-200">) {`{`}</span></div>
+                        <div class="ml-8"><span class="text-slate-200">console.text(</span><span class="text-amber-300">'New signup!'</span><span class="text-slate-200">, {`{ email: req.body.email }`});</span></div>
+                        <div class="ml-8"><span class="text-slate-200">res.status(</span><span class="text-emerald-400">200</span><span class="text-slate-200">).json({`{ success: true }`});</span></div>
+                        <div class="ml-4"><span class="text-slate-200">{`}`}</span></div>
+                        <div><span class="text-slate-200">{`}`}</span></div>
+                    </div>
+                </div>
+
+                <!-- Cron Job -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Cron Job</h3>
+                    <div class="bg-slate-900 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+                        <div><span class="text-purple-400">const</span> <span class="text-slate-200">cron = </span><span class="text-purple-400">require</span><span class="text-slate-200">(</span><span class="text-amber-300">'node-cron'</span><span class="text-slate-200">);</span></div>
+                        <div><span class="text-purple-400">const</span> <span class="text-slate-200">{`{ init }`} = </span><span class="text-purple-400">require</span><span class="text-slate-200">(</span><span class="text-amber-300">'@holler2660/console-text'</span><span class="text-slate-200">);</span></div>
+                        <div class="mt-4"><span class="text-slate-200">init({`{ apiKey: process.env.CONSOLE_TEXT_API_KEY }`});</span></div>
+                        <div class="mt-4"><span class="text-slate-500">// Run backup every night at 2am</span></div>
+                        <div><span class="text-slate-200">cron.schedule(</span><span class="text-amber-300">'0 2 * * *'</span><span class="text-slate-200">, </span><span class="text-purple-400">async</span><span class="text-slate-200"> () => {`{`}</span></div>
+                        <div class="ml-4"><span class="text-purple-400">try</span> <span class="text-slate-200">{`{`}</span></div>
+                        <div class="ml-8"><span class="text-purple-400">await</span> <span class="text-slate-200">runBackup();</span></div>
+                        <div class="ml-8"><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Backup completed successfully'</span><span class="text-slate-200">);</span></div>
+                        <div class="ml-4"><span class="text-slate-200">{`}`} </span><span class="text-purple-400">catch</span><span class="text-slate-200"> (error) {`{`}</span></div>
+                        <div class="ml-8"><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Backup failed!'</span><span class="text-slate-200">, {`{ severity: 'critical' }`});</span></div>
+                        <div class="ml-4"><span class="text-slate-200">{`}`}</span></div>
+                        <div><span class="text-slate-200">{`}`});</span></div>
+                    </div>
+                </div>
+
+                <!-- Deployment Script -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Deployment Script</h3>
+                    <div class="bg-slate-900 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+                        <div><span class="text-purple-400">const</span> <span class="text-slate-200">{`{ init }`} = </span><span class="text-purple-400">require</span><span class="text-slate-200">(</span><span class="text-amber-300">'@holler2660/console-text'</span><span class="text-slate-200">);</span></div>
+                        <div><span class="text-purple-400">const</span> <span class="text-slate-200">{`{ exec }`} = </span><span class="text-purple-400">require</span><span class="text-slate-200">(</span><span class="text-amber-300">'child_process'</span><span class="text-slate-200">);</span></div>
+                        <div class="mt-4"><span class="text-slate-200">init({`{ apiKey: process.env.CONSOLE_TEXT_API_KEY }`});</span></div>
+                        <div class="mt-4"><span class="text-slate-200">exec(</span><span class="text-amber-300">'git push heroku main'</span><span class="text-slate-200">, (error, stdout) => {`{`}</span></div>
+                        <div class="ml-4"><span class="text-purple-400">if</span> <span class="text-slate-200">(error) {`{`}</span></div>
+                        <div class="ml-8"><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Deploy failed!'</span><span class="text-slate-200">, {`{ severity: 'critical' }`});</span></div>
+                        <div class="ml-4"><span class="text-slate-200">{`}`} </span><span class="text-purple-400">else</span><span class="text-slate-200"> {`{`}</span></div>
+                        <div class="ml-8"><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Deploy succeeded to production!'</span><span class="text-slate-200">);</span></div>
+                        <div class="ml-4"><span class="text-slate-200">{`}`}</span></div>
+                        <div><span class="text-slate-200">{`}`});</span></div>
+                    </div>
+                </div>
+
+                <!-- Serverless Function -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Serverless Function (Vercel)</h3>
+                    <div class="bg-slate-900 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+                        <div><span class="text-purple-400">import</span> <span class="text-slate-200">{`{ init }`}</span> <span class="text-purple-400">from</span> <span class="text-amber-300">'@holler2660/console-text'</span><span class="text-slate-200">;</span></div>
+                        <div class="mt-4"><span class="text-slate-200">init({`{ apiKey: process.env.CONSOLE_TEXT_API_KEY }`});</span></div>
+                        <div class="mt-4"><span class="text-purple-400">export default async function</span> <span class="text-slate-200">handler(req, res) {`{`}</span></div>
+                        <div class="ml-4"><span class="text-slate-500">// Process webhook...</span></div>
+                        <div class="ml-4"><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Stripe webhook received'</span><span class="text-slate-200">, {</span></div>
+                        <div class="ml-8"><span class="text-slate-200">type: req.body.type,</span></div>
+                        <div class="ml-8"><span class="text-slate-200">amount: req.body.data.amount</span></div>
+                        <div class="ml-4"><span class="text-slate-200">});</span></div>
+                        <div class="ml-4"><span class="text-slate-200">res.status(</span><span class="text-emerald-400">200</span><span class="text-slate-200">).send(</span><span class="text-amber-300">'OK'</span><span class="text-slate-200">);</span></div>
+                        <div><span class="text-slate-200">{`}`}</span></div>
+                    </div>
+                </div>
+
+                <!-- Environment Variables -->
+                <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
+                    <h4 class="text-lg font-semibold text-slate-900 mb-3">💡 Best Practice: Environment Variables</h4>
+                    <p class="text-sm text-slate-700 mb-3">Never hardcode your API key! Use environment variables:</p>
+                    <div class="bg-slate-900 rounded-lg p-4 font-mono text-sm mb-3">
+                        <div><span class="text-slate-500"># .env file</span></div>
+                        <div><span class="text-slate-200">CONSOLE_TEXT_API_KEY=ct_live_your_key_here</span></div>
+                    </div>
+                    <div class="bg-slate-900 rounded-lg p-4 font-mono text-sm">
+                        <div><span class="text-slate-500">// In your code</span></div>
+                        <div><span class="text-slate-200">init({`{ apiKey: process.env.CONSOLE_TEXT_API_KEY }`});</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rate Limiting -->
+            <section id="rate-limiting" class="mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Rate Limiting</h2>
+                <p class="text-slate-700 mb-6">console.text() automatically prevents spam with built-in rate limiting.</p>
+
+                <div class="bg-slate-50 rounded-xl p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-slate-900 mb-4">How it works</h3>
+                    <ul class="space-y-3 text-slate-700">
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-600 mt-1">•</span>
+                            <span>Same message within <strong>5 minutes</strong> = sent only once</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-600 mt-1">•</span>
+                            <span>Different messages = each one sends</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-600 mt-1">•</span>
+                            <span>Rate-limited messages are <strong>logged but not sent</strong></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <h3 class="text-lg font-semibold text-slate-900 mb-4">Bypassing Rate Limits</h3>
+                <p class="text-slate-700 mb-4">If you need to send the same message multiple times, add a timestamp or unique ID:</p>
+                <div class="bg-slate-900 rounded-lg p-6 font-mono text-sm overflow-x-auto">
+                    <div><span class="text-slate-500">// ❌ Will be rate-limited</span></div>
+                    <div><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Payment failed'</span><span class="text-slate-200">);</span></div>
+                    <div><span class="text-slate-200">console.text(</span><span class="text-amber-300">'Payment failed'</span><span class="text-slate-200">); </span><span class="text-slate-500">// Won't send</span></div>
+                    <div class="mt-4"><span class="text-slate-500">// ✅ Won't be rate-limited</span></div>
+                    <div><span class="text-slate-200">console.text(</span><span class="text-amber-300">`Payment failed at ${`new Date().toISOString()`}`</span><span class="text-slate-200">);</span></div>
+                </div>
+            </section>
+
+            <!-- Troubleshooting -->
+            <section id="troubleshooting" class="mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Troubleshooting</h2>
+
+                <div class="space-y-6">
+                    <!-- Not receiving SMS -->
+                    <div class="border border-slate-200 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-3">SMS not received?</h3>
+                        <ul class="space-y-2 text-slate-700">
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 mt-1">✓</span>
+                                <span>Check you're using a <code class="text-sm bg-slate-100 px-1 rounded">ct_live_*</code> key (not <code class="text-sm bg-slate-100 px-1 rounded">ct_test_*</code>)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 mt-1">✓</span>
+                                <span>Verify your phone number is correct in your account</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 mt-1">✓</span>
+                                <span>Wait 5-10 seconds (delivery isn't instant)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 mt-1">✓</span>
+                                <span>Check if message was rate-limited (same message within 5 min)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- API errors -->
+                    <div class="border border-slate-200 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-3">Getting API errors?</h3>
+                        <ul class="space-y-2 text-slate-700">
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 mt-1">✓</span>
+                                <span>Enable debug mode: <code class="text-sm bg-slate-100 px-1 rounded">init({`{ debug: true }`})</code></span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 mt-1">✓</span>
+                                <span>Check your API key format (must start with <code class="text-sm bg-slate-100 px-1 rounded">ct_live_</code> or <code class="text-sm bg-slate-100 px-1 rounded">ct_test_</code>)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-emerald-500 mt-1">✓</span>
+                                <span>Verify you called <code class="text-sm bg-slate-100 px-1 rounded">init()</code> before <code class="text-sm bg-slate-100 px-1 rounded">console.text()</code></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Network issues -->
+                    <div class="border border-slate-200 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-3">Network timeouts?</h3>
+                        <p class="text-slate-700 mb-3">Increase timeout and retries:</p>
+                        <div class="bg-slate-900 rounded-lg p-4 font-mono text-sm">
+                            <div><span class="text-slate-200">init({`{`}</span></div>
+                            <div class="ml-4"><span class="text-slate-200">apiKey: </span><span class="text-amber-300">'ct_live_xxx'</span><span class="text-slate-200">,</span></div>
+                            <div class="ml-4"><span class="text-slate-200">timeout: </span><span class="text-emerald-400">10000</span><span class="text-slate-200">, </span><span class="text-slate-500">// 10 seconds</span></div>
+                            <div class="ml-4"><span class="text-slate-200">retries: </span><span class="text-emerald-400">5</span></div>
+                            <div><span class="text-slate-200">{`}`});</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Silently failing -->
+                    <div class="border border-slate-200 rounded-lg p-6">
+                        <h3 class="text-lg font-semibold text-slate-900 mb-3">Alerts failing silently?</h3>
+                        <p class="text-slate-700 mb-3">This is by design! Alerting should never crash your app. To debug:</p>
+                        <div class="bg-slate-900 rounded-lg p-4 font-mono text-sm">
+                            <div><span class="text-slate-200">init({`{ apiKey: 'ct_live_xxx', debug: true }`});</span></div>
+                            <div class="mt-2"><span class="text-slate-500">// Now check console for error messages</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Support -->
+            <section class="bg-indigo-50 rounded-xl p-8 border border-indigo-200">
+                <h2 class="text-2xl font-bold text-slate-900 mb-3">Need help?</h2>
+                <p class="text-slate-700 mb-4">Can't find what you're looking for? We're here to help!</p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="mailto:consoletext.dev@gmail.com" class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors text-center">
+                        Email Support
+                    </a>
+                    <a href="/#try-now" class="px-6 py-3 bg-white border-2 border-indigo-600 text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition-colors text-center">
+                        Try the Demo
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="text-white font-bold text-xl font-mono mb-4">console.text()</div>
+                    <p class="text-sm text-slate-400">One-line alerts for developers</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/docs" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="/#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="/#use-cases" class="hover:text-white transition-colors">Use Cases</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="mailto:consoletext.dev@gmail.com" class="hover:text-white transition-colors">consoletext.dev@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-sm text-slate-400 text-center">
+                <p>© 2025 console.text() • Building in public. All feedback welcome.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #64748b;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Font families */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        code, pre, .font-mono {
+            font-family: 'Fira Code', 'Consolas', monospace;
+        }
+    </style>
+</body>
+</html>

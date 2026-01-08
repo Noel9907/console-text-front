@@ -1,0 +1,1342 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>console.text() - Text yourself when code runs</title>
+    <meta name="description" content="One line. Zero config. Just works. Get SMS alerts when your code runs. 30-second setup for developers." />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="console.text() - Text yourself when code runs" />
+    <meta property="og:description" content="One line. Zero config. Just works. Get SMS alerts when your code runs." />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="font-sans antialiased bg-white text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-slate-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold text-slate-900">
+                        <span class="font-mono">console.text()</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/docs" class="text-slate-600 hover:text-slate-900 transition-colors">Docs</a>
+                    <a href="#pricing" class="text-slate-600 hover:text-slate-900 transition-colors">Pricing</a>
+                    <a href="#use-cases" class="text-slate-600 hover:text-slate-900 transition-colors">Use Cases</a>
+                    <a href="#try-now" class="px-6 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
+                        Get Started
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/docs" class="block px-3 py-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100">Docs</a>
+                <a href="#pricing" class="block px-3 py-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100">Pricing</a>
+                <a href="#use-cases" class="block px-3 py-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100">Use Cases</a>
+                <a href="#try-now" class="block px-3 py-2 rounded-md bg-indigo-600 text-white font-semibold hover:bg-indigo-700">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Title and Subtitle -->
+            <div class="text-center mb-12">
+                <h1 class="text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-4">
+                    Text yourself when code runs
+                </h1>
+                <p class="text-xl text-slate-600">
+                    One line. Zero config. Just works.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                <!-- Left: Small Code Block -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- Code Block -->
+                    <div class="bg-slate-900 rounded-xl p-6 font-mono text-sm overflow-x-auto">
+                        <div class="text-slate-400">// 1. Install</div>
+                        <div class="text-slate-500 mt-1">npm install @holler2660/console-text</div>
+                        <div class="mt-4 text-slate-400">// 2. Setup (once)</div>
+                        <div class="mt-1"><span class="text-purple-400">const</span> <span class="text-slate-200">{`{ init }`} = </span><span class="text-purple-400">require</span><span class="text-slate-200">(</span><span class="text-amber-300">"@holler2660/console-text"</span><span class="text-slate-200">);</span></div>
+                        <div class="mt-1"><span class="text-slate-200">init({`{ apiKey: `}</span><span class="text-amber-300">"ct_live_..."</span><span class="text-slate-200"> {`}`});</span></div>
+                        <div class="mt-4 text-slate-400">// 3. Use anywhere</div>
+                        <div class="mt-1"><span class="text-slate-200">console.text(</span><span class="text-amber-300">"Payment processed!"</span><span class="text-slate-200">);</span></div>
+                        <div class="text-slate-500 mt-2">// → SMS in 5-10 seconds ✓</div>
+                    </div>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col gap-3">
+                        <a href="#try-now" class="px-8 py-4 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors text-center shadow-lg shadow-indigo-600/30">
+                            Start Free - 50 Messages
+                        </a>
+                        <button id="watch-demo-btn" class="px-8 py-4 bg-white border-2 border-indigo-600 text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition-colors">
+                            Watch Demo
+                        </button>
+                    </div>
+
+                    <!-- Trust Bar -->
+                    <div class="flex flex-col gap-y-3 text-sm text-slate-600">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            Works globally (200+ countries)
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            10-second setup
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            Never crashes your app
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Video Demo Area -->
+                <div class="lg:col-span-7 relative">
+                    <!-- Code Video (Main) -->
+                    <video
+                        id="code-video"
+                        autoplay
+                        muted
+                        playsinline
+                        class="w-full rounded-xl shadow-2xl border border-slate-200"
+                    >
+                        <source src="/videos/code-demo.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <!-- Phone Video (3D Overlay) - Hidden initially -->
+                    <div id="phone-overlay" class="phone-overlay">
+                        <video
+                            id="phone-video"
+                            muted
+                            playsinline
+                            class="w-full rounded-xl shadow-2xl"
+                        >
+                            <source src="/videos/phone-demo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">Stop anxiously checking dashboards</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- The Problem -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200">
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">The Problem</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-600">❌  Deploy at 11pm</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-600">❌  Refresh dashboards for an hour</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-600">❌  Find out next morning it failed</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-600">❌  Cost: real money, real users</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Existing Solutions -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200">
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">Existing Solutions</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-600">⚠️  Sentry/DataDog: 2 hours setup</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-600">⚠️  PagerDuty: $$$, complex</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-600">⚠️  Twilio: manage credentials, rate limits, retries</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-600">⚠️  ntfy.sh: install app, configure topics</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- console.text() -->
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 border-2 border-indigo-200 relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        The Solution
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-slate-900">console.text()</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-700 font-medium">✅  2 lines of code</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-700 font-medium">✅  Works in 30 seconds</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-700 font-medium">✅  No setup, no config</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-slate-700 font-medium">✅  Built-in rate limiting</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="try-now" class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Try it right now (no signup required)</h2>
+                <p class="text-lg text-slate-600">Generate your API key and send a test SMS in 30 seconds</p>
+            </div>
+
+            <div class="bg-white rounded-2xl border-2 border-indigo-200 shadow-xl p-8">
+                <div id="key-generation-form">
+                    <h3 class="text-xl font-bold mb-6">Step 1: Generate Your API Key</h3>
+                    <form id="generate-key-form" class="space-y-4">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                required
+                                class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                placeholder="you@example.com"
+                            />
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-slate-700 mb-2">Phone Number (with country code)</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                required
+                                pattern="^\+[1-9]\d{1,14}$"
+                                class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                placeholder="+15551234567"
+                            />
+                            <p class="text-xs text-slate-500 mt-1">
+                                <strong>Format:</strong> +CountryCode followed by number (e.g., +15551234567 for US, +447911123456 for UK)
+                            </p>
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-full px-6 py-4 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            Generate API Keys
+                        </button>
+                    </form>
+                    <p class="text-sm text-slate-500 mt-4 text-center">
+                        Free forever. No credit card required. 50 free messages to get started.
+                    </p>
+                </div>
+
+                <div id="api-keys-display" class="hidden space-y-6">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-emerald-600">✅ API Keys Generated!</h3>
+                        <div class="space-y-4">
+                            <div class="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                                <div class="text-sm font-medium text-slate-600 mb-2">Test Key (logs only, no SMS)</div>
+                                <div class="flex items-center gap-2">
+                                    <code id="test-key" class="flex-1 font-mono text-sm bg-white px-3 py-2 rounded border border-slate-200">ct_test_***</code>
+                                    <button onclick="copyToClipboard('test-key')" class="px-3 py-2 bg-slate-200 hover:bg-slate-300 rounded text-sm font-medium transition-colors">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                                <div class="text-sm font-medium text-slate-600 mb-2">Live Key (sends real SMS)</div>
+                                <div class="flex items-center gap-2">
+                                    <code id="live-key" class="flex-1 font-mono text-sm bg-white px-3 py-2 rounded border border-slate-200">ct_live_***</code>
+                                    <button onclick="copyToClipboard('live-key')" class="px-3 py-2 bg-slate-200 hover:bg-slate-300 rounded text-sm font-medium transition-colors">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                            <p class="text-sm text-amber-800">
+                                <strong>⚠️ Save these now!</strong> You won't see them again. Store them securely.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-200 pt-6">
+                        <h3 class="text-xl font-bold mb-4">Step 2: Send Your First Alert</h3>
+                        <form id="send-sms-form" class="space-y-4">
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                                <input
+                                    type="text"
+                                    id="message"
+                                    required
+                                    maxlength="500"
+                                    class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                                    placeholder="Hello from console.text()!"
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                class="w-full px-6 py-4 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                Send Test SMS
+                            </button>
+                        </form>
+                        <div id="send-result" class="mt-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Table -->
+    <section class="py-16 bg-slate-50 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">Why console.text()?</h2>
+
+            <div class="overflow-x-auto">
+                <table class="w-full bg-white rounded-2xl overflow-hidden shadow-lg">
+                    <thead class="bg-slate-900 text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left font-semibold">Feature</th>
+                            <th class="px-6 py-4 text-center font-semibold">Twilio</th>
+                            <th class="px-6 py-4 text-center font-semibold">Sentry</th>
+                            <th class="px-6 py-4 text-center font-semibold">PagerDuty</th>
+                            <th class="px-6 py-4 text-center font-semibold bg-indigo-600">console.text()</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Setup time</td>
+                            <td class="px-6 py-4 text-center text-slate-600">2-4 hours</td>
+                            <td class="px-6 py-4 text-center text-slate-600">1-2 hours</td>
+                            <td class="px-6 py-4 text-center text-slate-600">2-3 hours</td>
+                            <td class="px-6 py-4 text-center font-bold text-indigo-600 bg-indigo-50">30 seconds</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Code required</td>
+                            <td class="px-6 py-4 text-center text-slate-600">50+ lines</td>
+                            <td class="px-6 py-4 text-center text-slate-600">20+ lines</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Config files</td>
+                            <td class="px-6 py-4 text-center font-bold text-indigo-600 bg-indigo-50">1 line</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Rate limiting</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Build it yourself</td>
+                            <td class="px-6 py-4 text-center text-emerald-600">✓ Built-in</td>
+                            <td class="px-6 py-4 text-center text-emerald-600">✓ Built-in</td>
+                            <td class="px-6 py-4 text-center font-bold text-emerald-600 bg-indigo-50">✓ Built-in</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Multi-channel</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Build each</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Errors only</td>
+                            <td class="px-6 py-4 text-center text-slate-600">$$$ add-on</td>
+                            <td class="px-6 py-4 text-center font-bold text-indigo-600 bg-indigo-50">Coming soon</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Pricing</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Pay Twilio</td>
+                            <td class="px-6 py-4 text-center text-slate-600">Free-$29/mo</td>
+                            <td class="px-6 py-4 text-center text-slate-600">$19+/user</td>
+                            <td class="px-6 py-4 text-center font-bold text-indigo-600 bg-indigo-50">Free-$10/mo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center mb-4">Not just for errors</h2>
+            <p class="text-lg text-slate-600 text-center mb-12">See how developers use console.text() in production</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Use Case 1 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-lg transition-all">
+                    <div class="text-4xl mb-4">💥</div>
+                    <h3 class="text-xl font-bold mb-3">Production Errors</h3>
+                    <ul class="space-y-2 text-slate-600 mb-4">
+                        <li>• Payment processing errors</li>
+                        <li>• Auth system failures</li>
+                        <li>• Database connection issues</li>
+                    </ul>
+                    <div class="text-sm text-indigo-600 font-medium">Perfect for: Solo devs, startups</div>
+                </div>
+
+                <!-- Use Case 2 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-lg transition-all">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-3">Event Notifications</h3>
+                    <ul class="space-y-2 text-slate-600 mb-4">
+                        <li>• Course availability alerts</li>
+                        <li>• Appointment slot openings</li>
+                        <li>• Inventory back in stock</li>
+                    </ul>
+                    <div class="text-sm text-indigo-600 font-medium">Perfect for: Families, small teams</div>
+                </div>
+
+                <!-- Use Case 3 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-lg transition-all">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-3">Deployment Alerts</h3>
+                    <ul class="space-y-2 text-slate-600 mb-4">
+                        <li>• Deploy succeeded/failed</li>
+                        <li>• Migration completed</li>
+                        <li>• Build status updates</li>
+                    </ul>
+                    <div class="text-sm text-indigo-600 font-medium">Perfect for: CI/CD pipelines</div>
+                </div>
+
+                <!-- Use Case 4 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-lg transition-all">
+                    <div class="text-4xl mb-4">⏰</div>
+                    <h3 class="text-xl font-bold mb-3">Cron Job Confirmations</h3>
+                    <ul class="space-y-2 text-slate-600 mb-4">
+                        <li>• Backup completed</li>
+                        <li>• Report generated</li>
+                        <li>• Data sync finished</li>
+                    </ul>
+                    <div class="text-sm text-indigo-600 font-medium">Perfect for: Background jobs</div>
+                </div>
+
+                <!-- Use Case 5 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-lg transition-all">
+                    <div class="text-4xl mb-4">🔗</div>
+                    <h3 class="text-xl font-bold mb-3">Webhook Monitoring</h3>
+                    <ul class="space-y-2 text-slate-600 mb-4">
+                        <li>• Stripe webhook received</li>
+                        <li>• GitHub webhook processed</li>
+                        <li>• API callback confirmed</li>
+                    </ul>
+                    <div class="text-sm text-indigo-600 font-medium">Perfect for: Integrations</div>
+                </div>
+
+                <!-- Use Case 6 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-lg transition-all">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-3">Business Metrics</h3>
+                    <ul class="space-y-2 text-slate-600 mb-4">
+                        <li>• First paying customer</li>
+                        <li>• Revenue threshold hit</li>
+                        <li>• 100th signup reached</li>
+                    </ul>
+                    <div class="text-sm text-indigo-600 font-medium">Perfect for: Founders tracking growth</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Channel Roadmap -->
+    <section class="py-16 bg-slate-50 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">Multi-channel alerts (coming soon)</h2>
+
+            <div class="space-y-6">
+                <div class="bg-white rounded-xl p-6 border-2 border-emerald-500">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-emerald-500 text-xl">✅</span>
+                        <h3 class="font-bold text-lg">SMS (live now)</h3>
+                    </div>
+                    <p class="text-slate-600">Get instant alerts on your phone. Works in 200+ countries.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border-2 border-indigo-500">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-indigo-500 text-xl">🚧</span>
+                        <h3 class="font-bold text-lg">This Week</h3>
+                    </div>
+                    <ul class="text-slate-600 space-y-1">
+                        <li>• Email alerts (unlimited, free)</li>
+                        <li>• Multi-recipient support</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border border-slate-200">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-slate-400 text-xl">📅</span>
+                        <h3 class="font-bold text-lg">Next 2 Weeks</h3>
+                    </div>
+                    <ul class="text-slate-600 space-y-1">
+                        <li>• Slack webhooks</li>
+                        <li>• Discord webhooks</li>
+                        <li>• Better documentation</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 border border-slate-200">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-slate-400 text-xl">💭</span>
+                        <h3 class="font-bold text-lg">Future</h3>
+                    </div>
+                    <ul class="text-slate-600 space-y-1">
+                        <li>• WhatsApp</li>
+                        <li>• Telegram</li>
+                        <li>• Phone calls (P0 alerts)</li>
+                        <li>• Custom webhooks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">What developers are saying</h2>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                    <p class="text-slate-700 mb-4 italic">
+                        "The real value is the one-line instrumentation. Anything that reduces cognitive load for solo devs wins."
+                    </p>
+                    <div class="text-sm text-slate-600">— SaaS Content Writer</div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                    <p class="text-slate-700 mb-4 italic">
+                        "I'd pay for it. I had to set up Twilio just to monitor course openings for my daughter. This would have been so much simpler."
+                    </p>
+                    <div class="text-sm text-slate-600">— Product Hunt User</div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                    <p class="text-slate-700 mb-4 italic">
+                        "This is VERY needed. Not for errors, but for event notifications. The Twilio nonsense was a pain."
+                    </p>
+                    <div class="text-sm text-slate-600">— Beta Tester</div>
+                </div>
+            </div>
+
+            <div class="flex justify-center gap-12 flex-wrap">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-indigo-600">22+</div>
+                    <div class="text-slate-600">Developers testing</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-indigo-600">4</div>
+                    <div class="text-slate-600">Already in production</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-indigo-600">200+</div>
+                    <div class="text-slate-600">Countries supported</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 bg-slate-50 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">Get started in 3 steps</h2>
+
+            <div class="space-y-8">
+                <!-- Step 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200">
+                    <div class="flex items-start gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                            1
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-2">Sign up (15 seconds)</h3>
+                            <ul class="text-slate-600 space-y-1">
+                                <li>• Get your API key instantly</li>
+                                <li>• No credit card required</li>
+                                <li>• 50 free messages to test</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200">
+                    <div class="flex items-start gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                            2
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-3">Install (10 seconds)</h3>
+                            <div class="bg-slate-900 rounded-lg p-4 font-mono text-sm text-emerald-400 overflow-x-auto">
+                                npm install @holler2660/console-text
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200">
+                    <div class="flex items-start gap-6">
+                        <div class="flex-shrink-0 w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                            3
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-3">Use it (5 seconds)</h3>
+
+                            <!-- CommonJS Example -->
+                            <div class="mb-3">
+                                <div class="text-xs font-semibold text-slate-600 mb-2">CommonJS (Node.js)</div>
+                                <div class="bg-slate-900 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+                                    <div>
+                                        <span class="text-purple-400">const</span>
+                                        <span class="text-slate-200"> {`{ init }`} = </span>
+                                        <span class="text-purple-400">require</span>
+                                        <span class="text-slate-200">(</span>
+                                        <span class="text-amber-300">"@holler2660/console-text"</span>
+                                        <span class="text-slate-200">);</span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="text-slate-200">init({`{ apiKey: `}</span>
+                                        <span class="text-amber-300">"ct_live_YDeLuv8vDwyitD"</span>
+                                        <span class="text-slate-200">, debug: </span>
+                                        <span class="text-purple-400">true</span>
+                                        <span class="text-slate-200"> {`}`});</span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="text-slate-200">console.text(</span>
+                                        <span class="text-amber-300">"Error detected!"</span>
+                                        <span class="text-slate-200">);</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ESM Example -->
+                            <div>
+                                <div class="text-xs font-semibold text-slate-600 mb-2">ES Modules (Modern JavaScript)</div>
+                                <div class="bg-slate-900 rounded-lg p-4 font-mono text-sm overflow-x-auto">
+                                    <div>
+                                        <span class="text-purple-400">import</span>
+                                        <span class="text-slate-200"> {`{ init }`} </span>
+                                        <span class="text-purple-400">from</span>
+                                        <span class="text-amber-300"> '@holler2660/console-text'</span>
+                                        <span class="text-slate-200">;</span>
+                                    </div>
+                                    <div class="mt-2"></div>
+                                    <div>
+                                        <span class="text-slate-200">init({`{ apiKey: `}</span>
+                                        <span class="text-amber-300">'ct_live_your_key'</span>
+                                        <span class="text-slate-200"> {`}`});</span>
+                                    </div>
+                                    <div class="mt-2 text-slate-500">// Now anywhere in your code:</div>
+                                    <div>
+                                        <span class="text-slate-200">console.text(</span>
+                                        <span class="text-amber-300">'Payment processed'</span>
+                                        <span class="text-slate-200">, {`{`}</span>
+                                    </div>
+                                    <div class="ml-4">
+                                        <span class="text-slate-200">userId: </span>
+                                        <span class="text-amber-300">'123'</span>
+                                        <span class="text-slate-200">,</span>
+                                    </div>
+                                    <div class="ml-4">
+                                        <span class="text-slate-200">amount: </span>
+                                        <span class="text-emerald-400">99.99</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-slate-200">{`}`});</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 text-lg font-semibold text-indigo-600">
+                                That's it. SMS arrives in 5-10 seconds.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+
+            <div class="space-y-6">
+                <details class="bg-white rounded-xl p-6 border border-slate-200 group">
+                    <summary class="font-bold text-lg cursor-pointer list-none flex justify-between items-center">
+                        Does this work outside the US?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-slate-600 mt-3">
+                        Yes! Works in 200+ countries via Twilio. You'll receive SMS wherever you are.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-xl p-6 border border-slate-200 group">
+                    <summary class="font-bold text-lg cursor-pointer list-none flex justify-between items-center">
+                        What if I spam myself with alerts?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-slate-600 mt-3">
+                        Built-in rate limiting: same message within 5 mins = sent once. Max 10 unique messages per 5-min window.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-xl p-6 border border-slate-200 group">
+                    <summary class="font-bold text-lg cursor-pointer list-none flex justify-between items-center">
+                        Will this crash my app if it fails?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-slate-600 mt-3">
+                        No. The SDK catches all errors and fails silently. Alerting should never break your app.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-xl p-6 border border-slate-200 group">
+                    <summary class="font-bold text-lg cursor-pointer list-none flex justify-between items-center">
+                        Why not just use Sentry/PagerDuty?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-slate-600 mt-3">
+                        Different tools. Sentry = comprehensive error monitoring. This = "wake me up for THIS specific thing."
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-xl p-6 border border-slate-200 group">
+                    <summary class="font-bold text-lg cursor-pointer list-none flex justify-between items-center">
+                        Can I send to multiple phone numbers?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-slate-600 mt-3">
+                        Multi-recipient support coming this week! You'll be able to alert teams/families.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-xl p-6 border border-slate-200 group">
+                    <summary class="font-bold text-lg cursor-pointer list-none flex justify-between items-center">
+                        What about email/Slack instead of SMS?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-slate-600 mt-3">
+                        Email support launching this week (free, unlimited). Slack/Discord webhooks next week.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-xl p-6 border border-slate-200 group">
+                    <summary class="font-bold text-lg cursor-pointer list-none flex justify-between items-center">
+                        How is this different from ntfy.sh?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-slate-600 mt-3">
+                        ntfy.sh requires setup (topics, app install). This is one line of code. Trade-off: simplicity vs self-hosting.
+                    </p>
+                </details>
+
+                <details class="bg-white rounded-xl p-6 border border-slate-200 group">
+                    <summary class="font-bold text-lg cursor-pointer list-none flex justify-between items-center">
+                        What if SMS costs are too high in my country?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-slate-600 mt-3">
+                        Email alerts will be unlimited and free. Use SMS for critical alerts only.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-16 bg-slate-50 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Simple, predictable pricing</h2>
+                <p class="text-lg text-slate-600">Currently in beta - Free tier available to all</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Free Tier -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-slate-200">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">FREE FOREVER</h3>
+                        <p class="text-slate-600 mb-4">Perfect for trying it out</p>
+                        <div class="text-5xl font-bold mb-2">$0</div>
+                        <div class="text-slate-600">/month</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">100 SMS/month</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">Unlimited email alerts</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">1 project</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">Community support</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">All core features</span>
+                        </li>
+                    </ul>
+                    <a href="#try-now" class="block w-full px-6 py-3 bg-slate-900 text-white text-center rounded-lg font-semibold hover:bg-slate-800 transition-colors">
+                        Start Free
+                    </a>
+                </div>
+
+                <!-- Starter Tier -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-indigo-600 relative transform scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        Most Popular
+                    </div>
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">STARTER</h3>
+                        <p class="text-slate-600 mb-4">Perfect for solo devs</p>
+                        <div class="text-5xl font-bold mb-2">$10</div>
+                        <div class="text-slate-600">/month</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">500 SMS/month</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">Unlimited email alerts</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">Up to 5 recipients</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">3 projects</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">Slack/Discord webhooks</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">Email support</span>
+                        </li>
+                    </ul>
+                    <button class="w-full px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
+                        Coming Soon
+                    </button>
+                </div>
+
+                <!-- Pro Tier -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-slate-200">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">PRO</h3>
+                        <p class="text-slate-600 mb-4">Perfect for teams</p>
+                        <div class="text-5xl font-bold mb-2">$25</div>
+                        <div class="text-slate-600">/month</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">2,000 SMS/month</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">Unlimited email alerts</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">Unlimited recipients</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">Unlimited projects</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">All channels (WhatsApp, Telegram)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">Priority support</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-emerald-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="text-slate-700">Usage analytics</span>
+                        </li>
+                    </ul>
+                    <button class="w-full px-6 py-3 bg-slate-900 text-white rounded-lg font-semibold hover:bg-slate-800 transition-colors">
+                        Coming Soon
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 space-y-2">
+                <p class="text-sm text-slate-600">Beta users grandfathered into free tier forever</p>
+                <p class="text-sm text-slate-600">Paid tiers launching after 100 active users</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-600 to-purple-600">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-4">
+                Ready to stop anxiously checking dashboards?
+            </h2>
+            <p class="text-xl text-indigo-100 mb-8">
+                Join 22+ developers already using console.text()
+            </p>
+            <a href="#try-now" class="inline-block px-10 py-5 bg-white text-indigo-600 rounded-lg font-bold text-lg hover:bg-indigo-50 transition-colors shadow-2xl">
+                Start Free - 50 Messages
+            </a>
+            <div class="mt-6 text-indigo-100 text-sm">
+                No credit card required • 2-minute setup • Cancel anytime
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="text-white font-bold text-xl font-mono mb-4">console.text()</div>
+                    <p class="text-sm text-slate-400">One-line alerts for developers</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/docs" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#use-cases" class="hover:text-white transition-colors">Use Cases</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="mailto:consoletext.dev@gmail.com" class="hover:text-white transition-colors">consoletext.dev@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-sm text-slate-400 text-center">
+                <p>© 2025 console.text() • Building in public. All feedback welcome.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="relative max-w-5xl w-full">
+            <button id="close-modal" class="absolute -top-12 right-0 text-white hover:text-slate-300 text-4xl">
+                ×
+            </button>
+            <video
+                id="modal-video"
+                controls
+                class="w-full rounded-xl"
+            >
+                <source src="/videos/demo.mp4" type="video/mp4" />
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenu?.classList.toggle('hidden');
+        });
+
+        // Video modal
+        const watchDemoBtn = document.getElementById('watch-demo-btn');
+        const videoModal = document.getElementById('video-modal');
+        const closeModal = document.getElementById('close-modal');
+        const modalVideo = document.getElementById('modal-video');
+
+        watchDemoBtn?.addEventListener('click', () => {
+            videoModal?.classList.remove('hidden');
+            modalVideo.play();
+        });
+
+        closeModal?.addEventListener('click', () => {
+            videoModal?.classList.add('hidden');
+            modalVideo.pause();
+        });
+
+        videoModal?.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoModal.classList.add('hidden');
+                modalVideo.pause();
+            }
+        });
+
+        // Copy to clipboard
+        window.copyToClipboard = function(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element?.textContent || '';
+            navigator.clipboard.writeText(text).then(() => {
+                const button = element?.nextElementSibling;
+                const originalText = button?.textContent;
+                if (button) {
+                    button.textContent = 'Copied!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                    }, 2000);
+                }
+            });
+        };
+
+        // API Key Generation
+        const generateKeyForm = document.getElementById('generate-key-form');
+        const keyGenerationForm = document.getElementById('key-generation-form');
+        const apiKeysDisplay = document.getElementById('api-keys-display');
+        const phoneInput = document.getElementById('phone');
+
+        // Real-time phone validation
+        phoneInput?.addEventListener('input', (e) => {
+            const phone = e.target.value;
+            const phoneRegex = /^\+[1-9]\d{1,14}$/;
+
+            if (phone.length > 0 && !phoneRegex.test(phone)) {
+                e.target.setCustomValidity('Phone must start with + followed by country code and number (e.g., +15551234567)');
+            } else {
+                e.target.setCustomValidity('');
+            }
+        });
+
+        generateKeyForm?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            // Client-side validation
+            const phoneRegex = /^\+[1-9]\d{1,14}$/;
+            if (!phoneRegex.test(phone)) {
+                alert('Invalid phone number format.\n\nPlease use E.164 format:\n+CountryCode followed by number\n\nExamples:\n+15551234567 (US)\n+447911123456 (UK)\n+917306761456 (India)');
+                return;
+            }
+
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Generating...';
+
+            try {
+                const apiUrl = 'https://api-production-298e.up.railway.app/v1/signup';
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email,
+                        phone
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    let errorMessage = errorData.message || 'Failed to generate API keys';
+
+                    if (errorData.details) {
+                        if (Array.isArray(errorData.details)) {
+                            const errors = errorData.details.map(err => {
+                                const field = err.path?.join('.') || 'field';
+                                return `${field}: ${err.message}`;
+                            }).join('\n');
+                            errorMessage = `Validation errors:\n${errors}`;
+                        } else if (typeof errorData.details === 'string') {
+                            errorMessage = errorData.details;
+                        }
+                    }
+
+                    throw new Error(errorMessage);
+                }
+
+                const data = await response.json();
+
+                // Display API keys
+                document.getElementById('test-key').textContent = data.apiKeys.test;
+                document.getElementById('live-key').textContent = data.apiKeys.live;
+
+                // Store live key for SMS sending
+                sessionStorage.setItem('apiKey', data.apiKeys.live);
+
+                // Hide form, show keys
+                keyGenerationForm?.classList.add('hidden');
+                apiKeysDisplay?.classList.remove('hidden');
+            } catch (error) {
+                const errorMsg = error.message || 'Error generating API keys. Please try again.';
+                alert(errorMsg);
+                console.error('Signup error:', error);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Generate API Keys';
+            }
+        });
+
+        // Send SMS
+        const sendSmsForm = document.getElementById('send-sms-form');
+        const sendResult = document.getElementById('send-result');
+
+        sendSmsForm?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const message = document.getElementById('message').value;
+            const apiKey = sessionStorage.getItem('apiKey');
+
+            if (!apiKey) {
+                sendResult.innerHTML = '<div class="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">Please generate API keys first</div>';
+                return;
+            }
+
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+
+            try {
+                const apiUrl = 'https://api-production-298e.up.railway.app/v1/alert';
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        message,
+                        metadata: {
+                            source: 'website-demo'
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to send SMS');
+                }
+
+                sendResult.innerHTML = `
+                    <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-lg">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <div>
+                                <div class="font-semibold text-emerald-700 mb-1">Message sent!</div>
+                                <div class="text-sm text-emerald-600">Check your phone in 5-10 seconds.</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Clear message input
+                document.getElementById('message').value = '';
+            } catch (error) {
+                sendResult.innerHTML = '<div class="p-3 bg-red-50 border border-red-200 rounded-lg text-red-700">Error sending message. Please try again.</div>';
+                console.error(error);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Test SMS';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #64748b;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Font families */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        code, pre, .font-mono {
+            font-family: 'Fira Code', 'Consolas', monospace;
+        }
+
+        /* Phone Overlay 3D Animation */
+        .phone-overlay {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 280px;
+            opacity: 0;
+            transform: translateX(100px) translateY(20px) rotateY(-15deg) scale(0.8);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+            z-index: 10;
+        }
+
+        .phone-overlay.show {
+            opacity: 1;
+            transform: translateX(0) translateY(0) rotateY(0deg) scale(1);
+        }
+
+        @media (max-width: 1024px) {
+            .phone-overlay {
+                width: 200px;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .phone-overlay {
+                width: 150px;
+                bottom: 5px;
+                right: 5px;
+            }
+        }
+    </style>
+
+    <script>
+        // 3D Phone Overlay Animation - Sequential Playback
+        const codeVideo = document.getElementById('code-video');
+        const phoneOverlay = document.getElementById('phone-overlay');
+        const phoneVideo = document.getElementById('phone-video');
+
+        let phoneShown = false;
+
+        // When code video reaches 7 seconds, show phone overlay
+        codeVideo?.addEventListener('timeupdate', () => {
+            if (codeVideo.currentTime >= 7 && !phoneShown) {
+                phoneOverlay?.classList.add('show');
+                phoneVideo?.play();
+                phoneShown = true;
+            }
+        });
+
+        // When code video ends, pause it on the last frame
+        codeVideo?.addEventListener('ended', () => {
+            codeVideo.pause();
+        });
+
+        // When phone video ends, reset everything and restart
+        phoneVideo?.addEventListener('ended', () => {
+            // Hide phone overlay
+            phoneOverlay?.classList.remove('show');
+            phoneVideo.pause();
+            phoneVideo.currentTime = 0;
+
+            // Reset code video and play again
+            codeVideo.currentTime = 0;
+            codeVideo.play();
+            phoneShown = false;
+        });
+    </script>
+</body>
+</html>
